@@ -37,9 +37,9 @@
 
 (define dan-then-dog
     (letrec (
-        [f (lambda () (cons "dan.jpg" (lambda () (g))))]
-        [g (lambda () (cons "dog.jpg" (lambda () (f))))])
-    (lambda () (f))))
+        [f (lambda () (cons "dan.jpg" g))]
+        [g (lambda () (cons "dog.jpg" f))])
+    f))
 
 (define (stream-add-zero s)
     (lambda ()
